@@ -1,0 +1,71 @@
+import React, { useState } from 'react';
+import { FaHeart, FaStar, FaMapMarkerAlt } from 'react-icons/fa';
+
+const UMKMCard = ({ umkm, onClick }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  return (
+    <div
+      onClick={onClick}
+      className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100"
+    >
+      {/* Image Container */}
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={umkm.image}
+          alt={umkm.name}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+        
+        {/* Category Badge - Top Left */}
+        <div className="absolute top-4 left-4 px-4 py-2 bg-white rounded-full text-xs font-semibold text-gray-700 shadow-md">
+          {umkm.category}
+        </div>
+        
+        {/* Favorite Button - Top Right */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsFavorite(!isFavorite);
+          }}
+          className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-all"
+        >
+          <FaHeart className={`${isFavorite ? 'text-red-500' : 'text-gray-300'} transition-colors`} />
+        </button>
+      </div>
+
+      {/* Content */}
+      <div className="p-5">
+        {/* Title */}
+        <h3 className="text-lg font-bold text-gray-800 mb-2">
+          {umkm.name}
+        </h3>
+        
+        {/* Description */}
+        <p className="text-sm text-gray-600 mb-4 line-clamp-2 leading-relaxed">
+          {umkm.description}
+        </p>
+
+        {/* Rating & Distance */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <FaStar className="text-yellow-400 text-sm" />
+            <span className="font-semibold text-sm text-gray-800">
+              {umkm.rating}
+            </span>
+            <span className="text-xs text-gray-500">
+              ({umkm.reviews})
+            </span>
+          </div>
+          
+          <div className="flex items-center gap-1.5 text-gray-600">
+            <FaMapMarkerAlt className="text-sm" />
+            <span className="text-sm">{umkm.distance}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UMKMCard;
