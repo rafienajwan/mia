@@ -32,7 +32,7 @@ const HomePage = () => {
       <Header onSearch={setSearchQuery} activeNav="home" />
 
       {/* Main Content */}
-      <main className="mt-20 px-8 py-8">
+      <main className="pt-20 px-8 py-8">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8">
             {/* Left Content */}
