@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Website Direktori UMKM - Lex Legum Qeon
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Website direktori UMKM (Usaha Mikro Kecil Menengah) yang memudahkan pengguna untuk menemukan dan mengeksplorasi berbagai UMKM lokal berdasarkan kategori seperti Makanan, Minuman, dan Fashion. Website ini dibangun untuk kompetisi dengan fokus pada user experience dan tampilan yang menarik.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- **React** 19.0.2 - Library JavaScript untuk membangun user interface
+- **Tailwind CSS** 3.4.1 - Framework CSS untuk styling
+- **React Router DOM** 7.9.4 - Routing library untuk navigasi antar halaman
+- **React Icons** 5.5.0 - Library icon untuk UI
+- **Create React App** - Tool untuk setup React project
 
-### `npm start`
+## Cara Menjalankan Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Clone Repository
+```bash
+git clone https://github.com/rafienajwan/MIA.git
+cd mia
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-### `npm test`
+### 3. Run Development Server
+```bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Website akan otomatis terbuka di browser pada `http://localhost:3000`
 
-### `npm run build`
+## Progress Saat Ini
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+✅ **Landing Page (Home)** - Halaman utama dengan:
+- Hero banner menampilkan UMKM featured
+- Grid 6 UMKM terpopuler dengan rating dan jarak
+- Sidebar "Yang Baru" dengan 3 UMKM terbaru
+- Search functionality untuk mencari UMKM
+- Footer dengan copyright
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+✅ **Halaman Categories** - Halaman filter kategori dengan:
+- Filter buttons (All, Foods, Drinks, Fashion)
+- Grid display semua UMKM berdasarkan kategori
+- Responsive layout 3 kolom
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+✅ **Komponen Reusable**:
+- Header dengan navigasi dan profile dropdown
+- UMKM Card dengan image, rating, dan detail
+- Filter buttons dengan active state
+- Footer component
 
-### `npm run eject`
+✅ **Fitur**:
+- Routing dengan React Router
+- Search UMKM by name atau kategori
+- Filter UMKM by kategori
+- Responsive design untuk berbagai ukuran layar
+- Custom scrollbar styling
+- Hover effects dan smooth transitions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Struktur Folder
+```
+src/
+├── components/        # Reusable components
+├── pages/            # Page components
+├── data/             # Mock data UMKM
+├── App.js            # Main app dengan routing
+└── index.css         # Global styles dengan Tailwind
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+public/
+├── Union.png         # Logo aplikasi
+└── index.html        # HTML template
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Fitur Mendatang
+- Halaman About Us
+- Halaman detail UMKM
+- Filter advanced (by rating, distance, price range)
+- Integration dengan Google Maps untuk lokasi
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+**Dibuat oleh:** Lex Legum Qeon  
+**Tahun:** 2025
