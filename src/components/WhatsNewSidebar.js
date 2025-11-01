@@ -6,11 +6,7 @@ const WhatsNewSidebar = ({ umkmList }) => {
     <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-bold text-gray-800">Yang Baru</h2>
-        <button className="text-xs text-blue-600 hover:text-blue-700 font-medium">
-          Lihat Semua
-        </button>
       </div>
-
       <div className="space-y-4">
         {umkmList.slice(0, 3).map((umkm) => (
           <div
