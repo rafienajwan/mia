@@ -25,12 +25,6 @@ const CategoriesPage = () => {
       <Header />
       
       <main className="flex-1 max-w-7xl mx-auto px-6 py-8 w-full">
-        {/* Page Title */}
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-800">
-            Desktop - Category (All)
-          </h1>
-        </div>
 
         {/* Filter Buttons */}
         <FilterButtons 
