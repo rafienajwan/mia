@@ -119,7 +119,7 @@ export const umkmData = [
     rating: 4.6,
     reviews: 221,
     distance: '2.1 km',
-    image: 'https://images.unsplash.com/photo-1558769132-cb1aea1c8991?w=400',
+    image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400',
     description: 'Jasa konveksi kaos, seragam, dan sablon dengan harga terjangkau.',
     address: 'Jl. Pemuda No. 67, Malang',
     phone: '0819-8901-2346',

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FaSearch, FaChevronDown, FaUser } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
 
-const Header = ({ onSearch, activeNav = 'home' }) => {
+const Header = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [hoveredNav, setHoveredNav] = useState(null);
+  const location = useLocation();
 
   const handleSearch = (e) => {
     const value = e.target.value;
@@ -15,9 +17,9 @@ const Header = ({ onSearch, activeNav = 'home' }) => {
   };
 
   const navItems = [
-    { id: 'home', label: 'Home', color: 'from-blue-500 to-blue-600' },
-    { id: 'categories', label: 'Categories', color: 'from-purple-500 to-purple-600' },
-    { id: 'about', label: 'About us', color: 'from-pink-500 to-pink-600' },
+    { id: 'home', label: 'Home', color: 'from-blue-500 to-blue-600', path: '/' },
+    { id: 'categories', label: 'Categories', color: 'from-purple-500 to-purple-600', path: '/categories' },
+    { id: 'about', label: 'About us', color: 'from-pink-500 to-pink-600', path: '/about' },
   ];
 
   return (
@@ -26,20 +28,23 @@ const Header = ({ onSearch, activeNav = 'home' }) => {
       <div className="flex items-center gap-12">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center">
-            <span className="text-white font-bold text-xl">LG</span>
-          </div>
+          <img 
+            src="/Union.png" 
+            alt="Logo" 
+            className="w-11 h-11 object-contain"
+          />
         </div>
 
         {/* Navigation */}
         <nav className="flex items-center gap-8">
           {navItems.map((item) => {
-            const isActive = activeNav === item.id;
+            const isActive = location.pathname === item.path;
             const isHovered = hoveredNav === item.id;
             
             return (
-              <button
+              <Link
                 key={item.id}
+                to={item.path}
                 onMouseEnter={() => setHoveredNav(item.id)}
                 onMouseLeave={() => setHoveredNav(null)}
                 className="relative py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors"
@@ -50,7 +55,7 @@ const Header = ({ onSearch, activeNav = 'home' }) => {
                 {(isActive || isHovered) && (
                   <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} transition-all duration-300`}></div>
                 )}
-              </button>
+              </Link>
             );
           })}
         </nav>
@@ -85,7 +90,7 @@ const Header = ({ onSearch, activeNav = 'home' }) => {
           >
             <span className="text-sm font-semibold text-gray-800">Guest</span>
             <img
-              src="https://ui-avatars.com/api/?name=Guest&background=FFA500&color=fff&size=128"
+              src="/avatar.png"
               alt="User"
               className="w-10 h-10 rounded-full"
             />
