@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaHeart, FaStar, FaMapMarkerAlt } from 'react-icons/fa';
 
-const UMKMCard = ({ umkm, onClick }) => {
+const UMKMCard = ({ umkm }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/umkm/${umkm.id}`);
+  };
 
   return (
     <div
-      onClick={onClick}
+      onClick={handleClick}
       className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100"
     >
       {/* Image Container */}
