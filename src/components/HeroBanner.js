@@ -1,8 +1,15 @@
 import React from 'react';
 import { FaArrowRight, FaMapMarkerAlt, FaStar } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const HeroBanner = ({ umkm }) => {
+  const navigate = useNavigate();
+
   if (!umkm) return null;
+
+  const handleVisitNow = () => {
+    navigate(`/umkm/${umkm.id}`);
+  };
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-[#4A5F7F] to-[#3D4E6B] rounded-3xl shadow-xl">
@@ -37,7 +44,10 @@ const HeroBanner = ({ umkm }) => {
           </div>
 
           {/* CTA Button */}
-          <button className="group bg-white text-gray-800 px-8 py-3.5 rounded-full font-semibold text-sm flex items-center gap-3 hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+          <button
+            onClick={handleVisitNow}
+            className="group bg-white text-gray-800 px-8 py-3.5 rounded-full font-semibold text-sm flex items-center gap-3 hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+          >
             Kunjungi Sekarang
             <FaArrowRight className="group-hover:translate-x-1 transition-transform text-sm" />
           </button>

@@ -28,7 +28,7 @@ const UMKMCard = ({ umkm }) => {
       setIsLiked(true);
     }
     
-    // Dispatch custom event for other components (optional)
+    // Dispatch custom event for other components
     window.dispatchEvent(new Event('likeChanged'));
   };
 

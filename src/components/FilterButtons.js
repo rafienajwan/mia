@@ -26,7 +26,7 @@ const FilterButtons = ({ activeFilter, setActiveFilter }) => {
                   : 'bg-white text-gray-700 border border-gray-200 hover:border-[#4A5F7F] hover:text-[#4A5F7F]'
               }`}
             >
-              <Icon className="text-lg" />
+              <Icon className={`text-lg ${filter.id === 'liked' && activeFilter === filter.id ? 'text-red-300' : ''}`} />
               <span>{filter.label}</span>
             </button>
           );

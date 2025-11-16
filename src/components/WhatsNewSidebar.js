@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 
 const WhatsNewSidebar = ({ umkmList }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (umkmId) => {
+    navigate(`/umkm/${umkmId}`);
+  };
+
   return (
     <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
       <div className="flex items-center justify-between mb-6">
@@ -11,6 +18,7 @@ const WhatsNewSidebar = ({ umkmList }) => {
         {umkmList.slice(0, 3).map((umkm) => (
           <div
             key={umkm.id}
+            onClick={() => handleClick(umkm.id)}
             className="flex items-center gap-3 p-3 rounded-2xl hover:bg-gray-50 transition-all cursor-pointer group"
           >
             {/* Circular Image */}
