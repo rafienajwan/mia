@@ -8,11 +8,11 @@ export const umkmData = [
     reviews: 256,
     distance: '1.2 km',
     image: '/1.OmaFeby.jpg',
-    description: 'Sate ayam dan kambing dengan bumbu kacang spesial. Sudah berdiri sejak 1995.',
+    description: 'Variasi makanan yang murah dan bumbu yang medok',
     address: 'Kantin UPN "Veteran Jawa Timur',
     phone: '0812-3456-7890',
     openHours: '07:00 - 15:00',
-    priceRange: 'Rp 15.000 - Rp 20.000',
+    priceRange: 'Rp 15.000',
     isFeatured: true,
     isNew: false,
     instagram: 'omah_feby',
@@ -28,21 +28,21 @@ export const umkmData = [
       {
         id: 2,
         name: 'Nasi Ayam Kremes',
-        price: 'Rp 18.000',
+        price: 'Rp 15.000',
         description: 'A crispy fried chicken served with crunchy golden crumbs on top.',
         image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&h=400&fit=crop'
       },
       {
         id: 3,
         name: 'Nasi Goreng Special',
-        price: 'Rp 17.000',
+        price: 'Rp 15.000',
         description: 'Special fried rice with extra toppings and premium ingredients.',
         image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=400&fit=crop'
       },
       {
         id: 4,
         name: 'Nasi Ayam Bakar',
-        price: 'Rp 20.000',
+        price: 'Rp 15.000',
         description: 'Grilled chicken with special spices, served with rice and fresh vegetables.',
         image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=400&h=400&fit=crop'
       }
@@ -296,125 +296,127 @@ export const umkmData = [
   },
   {
     id: 8,
-    name: 'Konveksi Murah Meriah',
-    category: 'Fashion',
-    rating: 4.6,
-    reviews: 221,
-    distance: '2.1 km',
-    image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400',
-    description: 'Jasa konveksi kaos, seragam, dan sablon dengan harga terjangkau.',
-    address: 'Jl. Pemuda No. 67, Malang',
-    phone: '0819-8901-2346',
-    openHours: '09:00 - 17:00',
-    priceRange: 'Rp 30.000 - Rp 200.000',
-    isFeatured: false,
+    name: 'Es Teh Nasgitel',
+    category: 'Minuman',
+    rating: 5.0,
+    reviews: 5,
+    distance: '2.8 km',
+    image: '/11. Es Teh Nasgitel.png',
+    description: 'Es teh murni dengan variasi rasa yang menyegarkan',
+    address: 'Jl.HOS Cokroaminoto No.2, Trenggalek',
+    phone: '0812-4918-9380',
+    openHours: '10:00 - 17:00',
+    priceRange: 'Rp 3.000 - Rp 10.000',
+    isFeatured: true,
     isNew: false,
-    instagram: 'konveksi_murahmeriah',
-    email: 'konveksimurah@gmail.com',
+    instagram: 'nasgitel.id',
+    email: '-',
     menuItems: [
       {
         id: 1,
-        name: 'Kaos Custom',
-        price: 'Rp 35.000',
-        description: 'Custom printed t-shirt with your own design.',
-        image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop'
+        name: 'Original Tea',
+        price: 'Rp 3.000',
+        description: 'refreshing tea drink with just-right sweetness, perfect for cooling off anytime.',
+        image: '/Menu/OriTea.png'
       },
       {
         id: 2,
-        name: 'Seragam Kantor',
-        price: 'Rp 100.000',
-        description: 'Professional office uniform, tailored fit.',
-        image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&h=400&fit=crop'
+        name: 'Lychee Squash',
+        price: 'Rp 10.000',
+        description: 'Fizzy drink bursting with the sweet, floral taste of fresh lychee.',
+        image: '/Menu/leciSq.png'
       },
       {
         id: 3,
-        name: 'Polo Shirt',
-        price: 'Rp 50.000',
-        description: 'High-quality polo shirt for corporate events.',
-        image: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400&h=400&fit=crop'
+        name: 'Ice/Hot Milo',
+        price: 'Rp 6.000',
+        description: 'Chocolatey malt drink with a smooth, great for both refreshing cool sips or warm.',
+        image: '/Menu/Milo.png'
+      },
+      {
+        id: 4,
+        name: 'Milk Tea',
+        price: 'Rp 6.000',
+        description: 'A smooth blend of tea and creamy milk, offering a lightly sweet, comforting flavor.',
+        image: '/Menu/Milk Tea.png'
       }
     ]
   },
   {
     id: 9,
-    name: 'Laundry Express 24 Jam',
-    category: 'Jasa',
-    rating: 4.8,
-    reviews: 412,
-    distance: '0.9 km',
-    image: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400',
-    description: 'Laundry kilat dengan layanan antar jemput. Buka 24 jam.',
-    address: 'Jl. Veteran No. 91, Medan',
-    phone: '0811-9012-3457',
-    openHours: '24 Jam',
-    priceRange: 'Rp 5.000/kg',
-    isFeatured: false,
+    name: 'Kering Kentang Mama 3DY',
+    category: 'Makanan',
+    rating: 4.0,
+    reviews: 4,
+    distance: '2.8 km',
+    image: '/Kering Kentang.png',
+    description: 'Kering kentang renyah dengan bumbu spesial rumahan',
+    address: 'Perumahan Taman Agung Permai Blok N no 22, Trenggalek',
+    phone: '0812-4918-9380',
+    openHours: '10:00 - 17:00',
+    priceRange: 'Rp 10.000 - Rp 15.000',
+    isFeatured: true,
     isNew: false,
-    instagram: 'laundry_express24',
-    email: 'laundryexpress@gmail.com',
+    instagram: '',
+    email: 'endahretnowatie@gmail.com',
     menuItems: [
       {
         id: 1,
-        name: 'Cuci Kering',
-        price: 'Rp 5.000/kg',
-        description: 'Wash and dry service, ready in 6 hours.',
-        image: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=400&fit=crop'
+        name: 'Kering Kentang Original (kecil/besar)',
+        price: 'Rp 10.000 - Rp 15.000',
+        description: 'Crispy snack made from thinly sliced fried potatoes coated in a sweet, spicy, and savory seasoning.',
+        image: '/Kering Kentang.png'
       },
-      {
-        id: 2,
-        name: 'Cuci Setrika',
-        price: 'Rp 7.000/kg',
-        description: 'Complete wash, dry and iron service.',
-        image: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=400&fit=crop'
-      },
-      {
-        id: 3,
-        name: 'Express 3 Jam',
-        price: 'Rp 10.000/kg',
-        description: 'Super fast service, ready in 3 hours.',
-        image: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400&h=400&fit=crop'
-      }
+      
     ]
   },
   {
     id: 10,
-    name: 'Anyaman Rotan Berkah',
-    category: 'Kerajinan',
+    name: 'JTS shoes',
+    category: 'Fashion',
     rating: 4.7,
-    reviews: 189,
+    reviews: 15,
     distance: '2.8 km',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400',
-    description: 'Produk anyaman rotan berkualitas: tas, furniture, dekorasi rumah.',
-    address: 'Jl. Diponegoro No. 112, Solo',
-    phone: '0812-0123-4568',
-    openHours: '08:00 - 16:00',
-    priceRange: 'Rp 50.000 - Rp 1.000.000',
+    image: '/10.JTS.png',
+    description: 'Sepatu thrift yang menawarkan gaya unik, nyaman dipakai, dan tetap hemat di kantong.',
+    address: 'Dobangsan, Ngantru, Kabupaten Trenggalek',
+    phone: '0822-5748-5269',
+    openHours: '09:00 - 20:00',
+    priceRange: 'Rp 200.000 - Rp 1.500.000',
     isFeatured: false,
     isNew: true,
-    instagram: 'anyaman_rotan_berkah',
-    email: 'anyamanrotan@gmail.com',
+    instagram: 'jtsshoes',
+    email: '',
     menuItems: [
       {
         id: 1,
-        name: 'Tas Rotan',
-        price: 'Rp 150.000',
-        description: 'Handwoven rattan bag, stylish and eco-friendly.',
-        image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400&h=400&fit=crop'
+        name: 'NB 57/40 Magnet (9/10 condition)',
+        price: 'Rp 800.000',
+        description: 'New Balance 57/40 Magnet features a modern chunky silhouette, stylish neutral tones, and soft cushioning for everyday comfort.',
+        image: '/menu/NB magnet.png'
       },
       {
         id: 2,
-        name: 'Kursi Rotan',
-        price: 'Rp 500.000',
-        description: 'Comfortable rattan chair for living room.',
-        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'
+        name: 'NB 992 USA black Strip (7/10 condition)',
+        price: 'Rp 450.000',
+        description: 'NB 992 USA Black Strip offers a clean, classic look with bold black accents and premium comfort for everyday wear.',
+        image: '/Menu/NB black.png'
       },
-      {
+       {
         id: 3,
-        name: 'Keranjang Rotan',
-        price: 'Rp 75.000',
-        description: 'Multi-purpose rattan basket for storage.',
-        image: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400&h=400&fit=crop'
-      }
+        name: 'Hoka Bondi 7 Blue Fog (8/10 condition)',
+        price: 'Rp 400.000',
+        description: 'Hoka Bondi 7 Blue Fog delivers a soft, ultra-cushioned ride with a sleek blue-gray look that’s perfect for all-day comfort.',
+        image: '/Menu/Hoka.png'
+      },
+      
+       {
+        id: 4,
+        name: 'Find Out More',
+        price: '--->',
+        description: 'Check out our Instagram for more unique thrift shoes!',
+        image: '/Menu/Dicky.png'
+      },
     ]
   },
 ];
