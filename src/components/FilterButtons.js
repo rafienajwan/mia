@@ -1,9 +1,10 @@
 import React from 'react';
-import { FaThLarge, FaUtensils, FaCoffee, FaTshirt } from 'react-icons/fa';
+import { FaThLarge, FaUtensils, FaCoffee, FaTshirt, FaHeart } from 'react-icons/fa';
 
 const FilterButtons = ({ activeFilter, setActiveFilter }) => {
   const filters = [
     { id: 'all', label: 'All', icon: FaThLarge },
+    { id: 'liked', label: 'Liked', icon: FaHeart },
     { id: 'foods', label: 'Foods', icon: FaUtensils },
     { id: 'drinks', label: 'Drinks', icon: FaCoffee },
     { id: 'fashion', label: 'Fashion', icon: FaTshirt },
