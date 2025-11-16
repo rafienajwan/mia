@@ -7,7 +7,7 @@ export const umkmData = [
     rating: 4.8,
     reviews: 256,
     distance: '1.2 km',
-    image: '/1.OmaFeby.jpg',
+    image: '/omafeby.jpg',
     description: 'Variasi makanan yang murah dan bumbu yang medok',
     address: 'Kantin UPN "Veteran Jawa Timur',
     phone: '0812-3456-7890',
@@ -55,7 +55,7 @@ export const umkmData = [
     rating: 4.6,
     reviews: 189,
     distance: '0.8 km',
-    image: '/2.EsemID.jpg',
+    image: '/esemid.jpg',
     description: 'Kopi tradisional dengan racikan rahasia turun temurun.',
     address: 'Jl. Sudirman No. 12, Jakarta Pusat',
     phone: '0813-2345-6789',
@@ -96,7 +96,7 @@ export const umkmData = [
     rating: 4.9,
     reviews: 342,
     distance: '2.5 km',
-    image: '/3.PasarGembong.jpg',
+    image: '/pasargembong.jpg',
     description: 'Batik tulis dan cap dengan motif tradisional dan modern.',
     address: 'Jl. Diponegoro No. 78, Yogyakarta',
     phone: '0814-3456-7891',
@@ -137,7 +137,7 @@ export const umkmData = [
     rating: 4.7,
     reviews: 178,
     distance: '1.5 km',
-    image: '/4.SambalKringz.jpg',
+    image: '/sambalkringz.jpg',
     description: 'Barbershop dengan gaya modern dan tradisional. Pelayanan ramah.',
     address: 'Jl. Gatot Subroto No. 23, Bandung',
     phone: '0815-4567-8912',
@@ -178,7 +178,7 @@ export const umkmData = [
     rating: 4.5,
     reviews: 134,
     distance: '3.2 km',
-    image: '/5.teamobakerysurabaya.jpeg',
+    image: '/teamobakery.jpeg',
     description: 'Produk kerajinan bambu berkualitas: keranjang, hiasan, furniture.',
     address: 'Jl. Raya Bogor No. 156, Depok',
     phone: '0816-5678-9123',
@@ -219,7 +219,7 @@ export const umkmData = [
     rating: 4.4,
     reviews: 298,
     distance: '0.5 km',
-    image: '/6.Kaos-Cak-Cuk.jpeg',
+    image: '/cakcuk.jpeg',
     description: 'Bakso bakar dengan bumbu pedas manis yang khas dan nagih.',
     address: 'Jl Dharmawangsa nomor 53-A, Kecamatan Gubeng, Surabaya.',
     phone: '0817-6789-0124',
@@ -260,7 +260,7 @@ export const umkmData = [
     rating: 4.3,
     reviews: 167,
     distance: '1.8 km',
-    image: '/7.DepotBuRudy.png',
+    image: '/depotburudy.png',
     description: 'Minuman segar dengan berbagai varian: teh, jeruk, kelapa muda.',
     address: 'Jl. Ahmad Yani No. 34, Semarang',
     phone: '0818-7890-1235',
@@ -301,7 +301,7 @@ export const umkmData = [
     rating: 5.0,
     reviews: 5,
     distance: '2.8 km',
-    image: '/11. Es Teh Nasgitel.png',
+    image: '/nasgitel.png',
     description: 'Es teh murni dengan variasi rasa yang menyegarkan',
     address: 'Jl.HOS Cokroaminoto No.2, Trenggalek',
     phone: '0812-4918-9380',
@@ -317,7 +317,7 @@ export const umkmData = [
         name: 'Original Tea',
         price: 'Rp 3.000',
         description: 'refreshing tea drink with just-right sweetness, perfect for cooling off anytime.',
-        image: '/Menu/OriTea.png'
+        image: '/Menu/oritea.png'
       },
       {
         id: 2,
@@ -331,14 +331,14 @@ export const umkmData = [
         name: 'Ice/Hot Milo',
         price: 'Rp 6.000',
         description: 'Chocolatey malt drink with a smooth, great for both refreshing cool sips or warm.',
-        image: '/Menu/Milo.png'
+        image: '/Menu/milo.png'
       },
       {
         id: 4,
         name: 'Milk Tea',
         price: 'Rp 6.000',
         description: 'A smooth blend of tea and creamy milk, offering a lightly sweet, comforting flavor.',
-        image: '/Menu/Milk Tea.png'
+        image: '/Menu/milktea.png'
       }
     ]
   },
@@ -349,7 +349,7 @@ export const umkmData = [
     rating: 4.0,
     reviews: 4,
     distance: '2.8 km',
-    image: '/Kering Kentang.png',
+    image: '/keringkentang.png',
     description: 'Kering kentang renyah dengan bumbu spesial rumahan',
     address: 'Perumahan Taman Agung Permai Blok N no 22, Trenggalek',
     phone: '0812-4918-9380',
@@ -365,7 +365,7 @@ export const umkmData = [
         name: 'Kering Kentang Original (kecil/besar)',
         price: 'Rp 10.000 - Rp 15.000',
         description: 'Crispy snack made from thinly sliced fried potatoes coated in a sweet, spicy, and savory seasoning.',
-        image: '/Kering Kentang.png'
+        image: '/keringkentang.png'
       },
       
     ]
@@ -377,7 +377,7 @@ export const umkmData = [
     rating: 4.7,
     reviews: 15,
     distance: '2.8 km',
-    image: '/10.JTS.png',
+    image: '/jtsshoes.png',
     description: 'Sepatu thrift yang menawarkan gaya unik, nyaman dipakai, dan tetap hemat di kantong.',
     address: 'Dobangsan, Ngantru, Kabupaten Trenggalek',
     phone: '0822-5748-5269',
@@ -393,21 +393,21 @@ export const umkmData = [
         name: 'NB 57/40 Magnet (9/10 condition)',
         price: 'Rp 800.000',
         description: 'New Balance 57/40 Magnet features a modern chunky silhouette, stylish neutral tones, and soft cushioning for everyday comfort.',
-        image: '/Menu/NB magnet.png'
+        image: '/Menu/nb-magnet.png'
       },
       {
         id: 2,
         name: 'NB 992 USA black Strip (7/10 condition)',
         price: 'Rp 450.000',
         description: 'NB 992 USA Black Strip offers a clean, classic look with bold black accents and premium comfort for everyday wear.',
-        image: '/Menu/NB black.png'
+        image: '/Menu/nb-black.png'
       },
        {
         id: 3,
         name: 'Hoka Bondi 7 Blue Fog (8/10 condition)',
         price: 'Rp 400.000',
         description: 'Hoka Bondi 7 Blue Fog delivers a soft, ultra-cushioned ride with a sleek blue-gray look that is perfect for all-day comfort.',
-        image: '/Menu/Hoka.png'
+        image: '/Menu/hoka.png'
       },
       
        {
@@ -415,7 +415,7 @@ export const umkmData = [
         name: 'Find Out More',
         price: '--->',
         description: 'Check out our Instagram for more unique thrift shoes!',
-        image: '/Menu/Dicky.png'
+        image: '/Menu/dicky.png'
       },
     ]
   },
