@@ -32,9 +32,9 @@ const HomePage = () => {
       <Header onSearch={setSearchQuery} activeNav="home" />
 
       {/* Main Content */}
-      <main className="pt-28 px-8 py-8">
+      <main className="pt-20 sm:pt-28 px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8">
+          <div className="grid grid-cols-1 xl:grid-cols-[1fr_340px] gap-6 sm:gap-8">
             {/* Left Content */}
             <div className="space-y-8">
               {/* Hero Banner */}
@@ -42,12 +42,12 @@ const HomePage = () => {
 
               {/* UMKM Terpopuler Section */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">
                   UMKM Terpopuler
                 </h2>
 
-                {/* Grid 3 columns */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Grid responsive */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                   {filteredUMKM.slice(0, 6).map((umkm) => (
                     <UMKMCard key={umkm.id} umkm={umkm} />
                   ))}
@@ -68,8 +68,8 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Right Sidebar */}
-            <div className="space-y-8">
+            {/* Right Sidebar - Hidden on tablet, shown on xl screens */}
+            <div className="hidden xl:block space-y-8">
               {/* Yang Baru */}
               <WhatsNewSidebar umkmList={newUMKM} />
             </div>

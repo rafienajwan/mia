@@ -54,10 +54,10 @@ const UMKMDetailPage = () => {
       <Header />
 
       {/* Back Button */}
-      <div className="max-w-7xl mx-auto px-8 pt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-6"
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors mb-4 sm:mb-6"
         >
           <FaChevronLeft className="text-sm" />
           <span className="font-medium">Back</span>
@@ -65,21 +65,21 @@ const UMKMDetailPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-8 pb-12">
-        <div className="bg-gradient-to-r from-[#4A5F7F] to-[#5D7C96] rounded-[2.5rem] overflow-hidden shadow-xl">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-8 lg:p-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
+        <div className="bg-gradient-to-r from-[#4A5F7F] to-[#5D7C96] rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-xl">
+          <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12 p-6 sm:p-8 lg:p-12">
             {/* Left Content */}
-            <div className="flex-1 text-white space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+            <div className="flex-1 text-white space-y-4 sm:space-y-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 {umkm.name}
               </h1>
 
-              <p className="text-lg leading-relaxed opacity-90">
+              <p className="text-base sm:text-lg leading-relaxed opacity-90">
                 {umkm.description}
               </p>
 
               {/* Rating & Info */}
-              <div className="flex flex-wrap items-center gap-6 pt-4">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 sm:pt-4">
                 <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full">
                   <FaStar className="text-yellow-300" />
                   <span className="font-bold">{umkm.rating}</span>
@@ -93,13 +93,13 @@ const UMKMDetailPage = () => {
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="flex-shrink-0 lg:w-[450px]">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
+            {/* Right Image - Fixed aspect ratio */}
+            <div className="flex-shrink-0 w-full lg:w-[400px] xl:w-[450px]">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
                 <img
                   src={umkm.image}
                   alt={umkm.name}
-                  className="w-full h-[300px] lg:h-[350px] object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -108,9 +108,9 @@ const UMKMDetailPage = () => {
       </section>
 
       {/* Menu Section */}
-      <section className="max-w-7xl mx-auto px-8 py-12">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold text-gray-800">Menu</h2>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Menu</h2>
           
           {menuItems.length > 3 && (
             <div className="flex gap-2">
@@ -144,26 +144,26 @@ const UMKMDetailPage = () => {
             {menuItems.map((item) => (
               <div
                 key={item.id}
-                className="flex-shrink-0 w-[320px] bg-[#4A5F7F] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="flex-shrink-0 w-[280px] sm:w-[320px] bg-[#4A5F7F] rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 {/* Price Badge */}
-                <div className="px-8 pt-8 pb-6">
+                <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6">
                   <div className="flex gap-3 mb-4">
                     <span className="px-4 py-1.5 bg-white rounded-full text-xs font-semibold text-gray-800">
                       {item.price}
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white leading-tight mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight mb-2 sm:mb-3">
                     {item.name}
                   </h3>
                   
-                  <p className="text-sm text-white/90 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed line-clamp-2">
                     {item.description}
                   </p>
                 </div>
 
-                {/* Image */}
+                {/* Image - Fixed aspect ratio */}
                 <div className="relative bg-white aspect-square overflow-hidden">
                   <img
                     src={item.image}
@@ -182,10 +182,10 @@ const UMKMDetailPage = () => {
       </section>
 
       {/* Location & Review Section */}
-      <section className="max-w-7xl mx-auto px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Location */}
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Our Location</h2>
             
             {/* Info Cards */}
@@ -239,7 +239,7 @@ const UMKMDetailPage = () => {
           </div>
 
           {/* Review Form */}
-          <div className="bg-gradient-to-br from-[#4A5F7F] to-[#5D7C96] rounded-3xl p-8 shadow-lg text-white">
+          <div className="bg-gradient-to-br from-[#4A5F7F] to-[#5D7C96] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg text-white">
             <h2 className="text-2xl font-bold mb-2">Review</h2>
             <p className="text-white/80 mb-6">
               Tried our food? Leave your review and let us know what you think!
@@ -300,28 +300,28 @@ const UMKMDetailPage = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="bg-gray-50 mt-12">
-        <div className="max-w-7xl mx-auto px-8 py-20">
-          <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
+      <section className="bg-gray-50 mt-8 sm:mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 sm:mb-6 text-gray-800">
             Contact Information
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base px-4">
             Get in touch with us through any of these channels. We'd love to hear from you!
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <a
               href={`https://www.instagram.com/${umkm.instagram || ''}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group"
             >
-              <div className="bg-gradient-to-br from-[#4A5F7F] to-[#3D4E6B] rounded-3xl p-8 text-center text-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <FaInstagram className="text-4xl" />
+              <div className="bg-gradient-to-br from-[#4A5F7F] to-[#3D4E6B] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center text-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
+                  <FaInstagram className="text-3xl sm:text-4xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Instagram</h3>
-                <p className="text-sm opacity-90">{umkm.instagram || 'Not available'}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Instagram</h3>
+                <p className="text-xs sm:text-sm opacity-90">{umkm.instagram || 'Not available'}</p>
               </div>
             </a>
 
@@ -331,12 +331,12 @@ const UMKMDetailPage = () => {
               rel="noopener noreferrer"
               className="group"
             >
-              <div className="bg-gradient-to-br from-[#4A5F7F] to-[#3D4E6B] rounded-3xl p-8 text-center text-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <FaWhatsapp className="text-4xl" />
+              <div className="bg-gradient-to-br from-[#4A5F7F] to-[#3D4E6B] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center text-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
+                  <FaWhatsapp className="text-3xl sm:text-4xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">WhatsApp</h3>
-                <p className="text-sm opacity-90">{umkm.phone}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">WhatsApp</h3>
+                <p className="text-xs sm:text-sm opacity-90">{umkm.phone}</p>
               </div>
             </a>
 
@@ -344,12 +344,12 @@ const UMKMDetailPage = () => {
               href={`mailto:${umkm.email || ''}`}
               className="group"
             >
-              <div className="bg-gradient-to-br from-[#4A5F7F] to-[#3D4E6B] rounded-3xl p-8 text-center text-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <FaEnvelope className="text-4xl" />
+              <div className="bg-gradient-to-br from-[#4A5F7F] to-[#3D4E6B] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center text-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
+                  <FaEnvelope className="text-3xl sm:text-4xl" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Email</h3>
-                <p className="text-sm opacity-90">{umkm.email || 'Not available'}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Email</h3>
+                <p className="text-xs sm:text-sm opacity-90">{umkm.email || 'Not available'}</p>
               </div>
             </a>
           </div>

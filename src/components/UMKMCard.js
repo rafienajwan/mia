@@ -39,10 +39,10 @@ const UMKMCard = ({ umkm }) => {
   return (
     <div
       onClick={handleClick}
-      className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100"
+      className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 h-full flex flex-col"
     >
-      {/* Image Container */}
-      <div className="relative h-48 overflow-hidden">
+      {/* Image Container - Fixed aspect ratio */}
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
         <img
           src={umkm.image}
           alt={umkm.name}
@@ -64,19 +64,19 @@ const UMKMCard = ({ umkm }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col">
         {/* Title */}
-        <h3 className="text-lg font-bold text-gray-800 mb-2">
+        <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-2">
           {umkm.name}
         </h3>
         
         {/* Description */}
-        <p className="text-sm text-gray-600 mb-4 line-clamp-2 leading-relaxed">
+        <p className="text-xs sm:text-sm text-gray-600 mb-4 line-clamp-2 leading-relaxed flex-1">
           {umkm.description}
         </p>
 
         {/* Rating & Distance */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-auto">
           <div className="flex items-center gap-2">
             <FaStar className="text-yellow-400 text-sm" />
             <span className="font-semibold text-sm text-gray-800">

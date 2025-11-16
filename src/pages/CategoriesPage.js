@@ -32,7 +32,7 @@ const CategoriesPage = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
       
-      <main className="flex-1 max-w-7xl mx-auto px-6 pt-28 pb-8 w-full">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-8 w-full">
         {/* Filter Buttons */}
         <FilterButtons 
           activeFilter={activeFilter} 
@@ -40,7 +40,7 @@ const CategoriesPage = () => {
         />
 
         {/* UMKM Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-8">
           {filteredUMKM.map((umkm) => (
             <UMKMCard key={umkm.id} umkm={umkm} />
           ))}
