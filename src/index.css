@@ -67,35 +67,20 @@ code {
   overflow: hidden;
 }
 
-/* Responsive image container */
-.aspect-square {
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%; /* Fallback for old browsers */
-  aspect-ratio: 1 / 1;
-}
-
-.aspect-square > * {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.aspect-\[4\/3\] {
-  position: relative;
-  width: 100%;
-  padding-bottom: 75%; /* Fallback: 3/4 = 0.75 = 75% */
-  aspect-ratio: 4 / 3;
-}
-
-.aspect-\[4\/3\] > * {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Responsive image container - using aspect-ratio with fallback */
+@supports not (aspect-ratio: 1 / 1) {
+  /* Fallback for old browsers that don't support aspect-ratio */
+  .aspect-square::before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+  
+  .aspect-\[4\/3\]::before {
+    content: '';
+    display: block;
+    padding-bottom: 75%;
+  }
 }
 
 /* Prevent text overflow */
