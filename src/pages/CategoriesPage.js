@@ -7,30 +7,41 @@ import { umkmData } from '../data/umkmData';
 
 const CategoriesPage = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // Filter UMKM berdasarkan kategori yang dipilih
+  // Filter UMKM berdasarkan kategori dan search query
   const filteredUMKM = React.useMemo(() => {
+    let filtered = umkmData;
+
+    // Filter by liked
     if (activeFilter === 'liked') {
       const likedUMKM = JSON.parse(localStorage.getItem('likedUMKM') || '[]');
-      return umkmData.filter(umkm => likedUMKM.includes(umkm.id));
+      filtered = umkmData.filter(umkm => likedUMKM.includes(umkm.id));
+    } else if (activeFilter !== 'all') {
+      // Filter by category
+      const categoryMap = {
+        'foods': 'Makanan',
+        'drinks': 'Minuman',
+        'fashion': 'Fashion'
+      };
+      filtered = umkmData.filter(umkm => umkm.category === categoryMap[activeFilter]);
     }
-    
-    if (activeFilter === 'all') {
-      return umkmData;
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      filtered = filtered.filter(umkm =>
+        umkm.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        umkm.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        umkm.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
     }
-    
-    const categoryMap = {
-      'foods': 'Makanan',
-      'drinks': 'Minuman',
-      'fashion': 'Fashion'
-    };
-    
-    return umkmData.filter(umkm => umkm.category === categoryMap[activeFilter]);
-  }, [activeFilter]);
+
+    return filtered;
+  }, [activeFilter, searchQuery]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header />
+      <Header onSearch={setSearchQuery} />
       
       <main className="flex-1 max-w-7xl mx-auto px-6 pt-28 pb-8 w-full">
         {/* Filter Buttons */}
@@ -50,17 +61,21 @@ const CategoriesPage = () => {
         {filteredUMKM.length === 0 && (
           <div className="text-center py-12">
             <div className="text-6xl mb-4">
-              {activeFilter === 'liked' ? '💔' : '🔍'}
+              {searchQuery ? '🔍' : activeFilter === 'liked' ? '💔' : '🔍'}
             </div>
             <h3 className="text-xl font-semibold text-gray-700 mb-2">
-              {activeFilter === 'liked' 
-                ? 'Belum ada UMKM yang disukai' 
-                : 'Tidak ada UMKM dalam kategori ini'}
+              {searchQuery 
+                ? 'Tidak ada UMKM ditemukan'
+                : activeFilter === 'liked' 
+                  ? 'Belum ada UMKM yang disukai' 
+                  : 'Tidak ada UMKM dalam kategori ini'}
             </h3>
             <p className="text-gray-500">
-              {activeFilter === 'liked'
-                ? 'Mulai like UMKM favoritmu!'
-                : 'Coba pilih kategori lain'}
+              {searchQuery
+                ? 'Coba ubah kata kunci pencarian'
+                : activeFilter === 'liked'
+                  ? 'Mulai like UMKM favoritmu!'
+                  : 'Coba pilih kategori lain'}
             </p>
           </div>
         )}

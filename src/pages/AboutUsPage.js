@@ -45,7 +45,7 @@ const AboutUsPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
+      <Header activeNav="about" />
       
       <section className="max-w-6xl mx-auto px-8 pt-32 pb-20">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
