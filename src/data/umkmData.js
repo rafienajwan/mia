@@ -219,7 +219,7 @@ export const umkmData = [
     rating: 4.4,
     reviews: 298,
     distance: '0.5 km',
-    image: '/6.kaos-cak-cuk.jpeg',
+    image: '/6.Kaos-Cak-Cuk.jpeg',
     description: 'Bakso bakar dengan bumbu pedas manis yang khas dan nagih.',
     address: 'Jl Dharmawangsa nomor 53-A, Kecamatan Gubeng, Surabaya.',
     phone: '0817-6789-0124',
@@ -393,7 +393,7 @@ export const umkmData = [
         name: 'NB 57/40 Magnet (9/10 condition)',
         price: 'Rp 800.000',
         description: 'New Balance 57/40 Magnet features a modern chunky silhouette, stylish neutral tones, and soft cushioning for everyday comfort.',
-        image: '/menu/NB magnet.png'
+        image: '/Menu/NB magnet.png'
       },
       {
         id: 2,
@@ -406,7 +406,7 @@ export const umkmData = [
         id: 3,
         name: 'Hoka Bondi 7 Blue Fog (8/10 condition)',
         price: 'Rp 400.000',
-        description: 'Hoka Bondi 7 Blue Fog delivers a soft, ultra-cushioned ride with a sleek blue-gray look that’s perfect for all-day comfort.',
+        description: 'Hoka Bondi 7 Blue Fog delivers a soft, ultra-cushioned ride with a sleek blue-gray look that is perfect for all-day comfort.',
         image: '/Menu/Hoka.png'
       },
       
