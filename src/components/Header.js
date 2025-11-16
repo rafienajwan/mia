@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { FaSearch, FaChevronDown, FaUser } from 'react-icons/fa';
+import { FaSearch, FaChevronDown, FaUser, FaBars, FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [hoveredNav, setHoveredNav] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   // Hide search on About Us page
@@ -27,62 +28,57 @@ const Header = ({ onSearch }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-40">
-      <div className="h-20 flex items-center justify-between px-8 max-w-full">
-        {/* Logo & Navigation */}
-        <div className="flex items-center gap-12 flex-shrink-0">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <img 
-              src="/Union.png" 
-              alt="Logo" 
-              className="w-11 h-11 object-contain"
-            />
-          </div>
-
-          {/* Navigation */}
-          <nav className="flex items-center gap-8">
-            {navItems.map((item) => {
-              const isActive = location.pathname === item.path;
-              const isHovered = hoveredNav === item.id;
-              
-              return (
-                <Link
-                  key={item.id}
-                  to={item.path}
-                  onMouseEnter={() => setHoveredNav(item.id)}
-                  onMouseLeave={() => setHoveredNav(null)}
-                  className="relative py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors whitespace-nowrap"
-                >
-                  {item.label}
-                  
-                  {/* Underline with gradient */}
-                  {(isActive || isHovered) && (
-                    <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} transition-all duration-300`}></div>
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
+      <div className="h-16 sm:h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8 max-w-full">
+        {/* Logo */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <img 
+            src="/Union.png" 
+            alt="Logo" 
+            className="w-9 h-9 sm:w-11 sm:h-11 object-contain"
+          />
         </div>
 
-        {/* Search Bar - Hidden on About Us page */}
-        {!hideSearch && (
-          <div className="flex-1 max-w-md mx-8 min-w-0">
-            <div className="relative">
-              <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
-              <input
-                type="text"
-                placeholder="Cari UMKM berdasarkan nama atau kategori..."
-                value={searchQuery}
-                onChange={handleSearch}
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              />
-            </div>
+        {/* Desktop Navigation - Hidden on mobile */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            const isHovered = hoveredNav === item.id;
+            
+            return (
+              <Link
+                key={item.id}
+                to={item.path}
+                onMouseEnter={() => setHoveredNav(item.id)}
+                onMouseLeave={() => setHoveredNav(null)}
+                className="relative py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors whitespace-nowrap"
+              >
+                {item.label}
+                
+                {/* Underline with gradient */}
+                {(isActive || isHovered) && (
+                  <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} transition-all duration-300`}></div>
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Desktop Search Bar - Hidden on mobile */}
+        <div className="hidden md:flex flex-1 max-w-md mx-8 min-w-0">
+          <div className="relative w-full">
+            <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+            <input
+              type="text"
+              placeholder="Cari UMKM..."
+              value={searchQuery}
+              onChange={handleSearch}
+              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+            />
           </div>
         )}
 
-        {/* Right Side */}
-        <div className="flex items-center gap-4 flex-shrink-0">
+        {/* Right Side - Desktop */}
+        <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
           {/* Promo Text */}
           <div className="flex items-center gap-2 text-sm">
             <span className="text-gray-400 whitespace-nowrap">Enjoy your shop,</span>
@@ -116,7 +112,66 @@ const Header = ({ onSearch }) => {
             )}
           </div>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          {mobileMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
+          {/* Mobile Search */}
+          <div className="px-4 py-3 border-b border-gray-100">
+            <div className="relative">
+              <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+              <input
+                type="text"
+                placeholder="Cari UMKM..."
+                value={searchQuery}
+                onChange={handleSearch}
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <nav className="py-2">
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.path;
+              
+              return (
+                <Link
+                  key={item.id}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-4 py-3 text-gray-600 hover:bg-gray-50 transition-colors font-medium ${
+                    isActive ? 'bg-gray-50 text-gray-900' : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Mobile Profile */}
+          <div className="px-4 py-3 border-t border-gray-100">
+            <button className="flex items-center gap-3 w-full hover:bg-gray-50 px-3 py-2 rounded-xl transition-all">
+              <img
+                src="/avatar.png"
+                alt="User"
+                className="w-10 h-10 rounded-full flex-shrink-0"
+              />
+              <span className="text-sm font-semibold text-gray-800">Guest</span>
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

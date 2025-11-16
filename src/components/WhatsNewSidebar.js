@@ -21,13 +21,15 @@ const WhatsNewSidebar = ({ umkmList }) => {
             onClick={() => handleClick(umkm.id)}
             className="flex items-center gap-3 p-3 rounded-2xl hover:bg-gray-50 transition-all cursor-pointer group"
           >
-            {/* Circular Image */}
+            {/* Square Image with aspect ratio */}
             <div className="relative flex-shrink-0">
-              <img
-                src={umkm.image}
-                alt={umkm.name}
-                className="w-12 h-12 rounded-full object-cover"
-              />
+              <div className="w-12 h-12 rounded-full overflow-hidden">
+                <img
+                  src={umkm.image}
+                  alt={umkm.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             {/* Content */}
