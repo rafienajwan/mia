@@ -27,37 +27,8 @@ const UMKMDetailPage = () => {
     );
   }
 
-  // Menu items for the UMKM
-  const menuItems = [
-    {
-      id: 1,
-      name: 'Nasi Goreng',
-      price: 'Rp 15.000',
-      description: 'A flavorful stir-fried rice dish with sweet soy sauce, spices, and a fried egg on top. It\'s simple, delicious, and loved across Indonesia.',
-      image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=400&fit=crop'
-    },
-    {
-      id: 2,
-      name: 'Nasi Ayam Kremes',
-      price: 'Rp 18.000',
-      description: 'A crispy fried chicken served with crunchy golden crumbs on top. It\'s flavorful, juicy, and often enjoyed with rice, sambal, and fresh vegetables.',
-      image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&h=400&fit=crop'
-    },
-    {
-      id: 3,
-      name: 'Nasi Goreng Special',
-      price: 'Rp 17.000',
-      description: 'A flavorful stir-fried rice dish with sweet soy sauce, spices, and a fried egg on top. It\'s simple, delicious, and loved across Indonesia.',
-      image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=400&fit=crop'
-    },
-    {
-      id: 4,
-      name: 'Nasi Ayam Bakar',
-      price: 'Rp 20.000',
-      description: 'Grilled chicken with special spices, served with rice and fresh vegetables. Perfect for spicy food lovers.',
-      image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=400&h=400&fit=crop'
-    }
-  ];
+  // Use menu items from UMKM data
+  const menuItems = umkm.menuItems || [];
 
   const scrollMenu = (direction) => {
     if (menuScrollRef.current) {
@@ -141,67 +112,73 @@ const UMKMDetailPage = () => {
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-gray-800">Menu</h2>
           
-          {/* Scroll Buttons */}
-          <div className="flex gap-2">
-            <button
-              onClick={() => scrollMenu('left')}
-              className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all hover:scale-105"
-            >
-              <FaChevronLeft className="text-gray-600" />
-            </button>
-            <button
-              onClick={() => scrollMenu('right')}
-              className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all hover:scale-105"
-            >
-              <FaChevronRight className="text-gray-600" />
-            </button>
-          </div>
-        </div>
-
-        {/* Horizontal Scrollable Menu */}
-        <div
-          ref={menuScrollRef}
-          className="flex gap-6 overflow-x-auto pb-4"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          <style jsx>{`
-            div::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
-          {menuItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex-shrink-0 w-[320px] bg-[#4A5F7F] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-            >
-              {/* Price Badge */}
-              <div className="px-8 pt-8 pb-6">
-                <div className="flex gap-3 mb-4">
-                  <span className="px-4 py-1.5 bg-white rounded-full text-xs font-semibold text-gray-800">
-                    {item.price}
-                  </span>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white leading-tight mb-3">
-                  {item.name}
-                </h3>
-                
-                <p className="text-sm text-white/90 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Image */}
-              <div className="relative bg-white aspect-square overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          {menuItems.length > 3 && (
+            <div className="flex gap-2">
+              <button
+                onClick={() => scrollMenu('left')}
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all hover:scale-105"
+              >
+                <FaChevronLeft className="text-gray-600" />
+              </button>
+              <button
+                onClick={() => scrollMenu('right')}
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all hover:scale-105"
+              >
+                <FaChevronRight className="text-gray-600" />
+              </button>
             </div>
-          ))}
+          )}
         </div>
+
+        {menuItems.length > 0 ? (
+          <div
+            ref={menuScrollRef}
+            className="flex gap-6 overflow-x-auto pb-4"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <style jsx>{`
+              div::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
+            {menuItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex-shrink-0 w-[320px] bg-[#4A5F7F] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              >
+                {/* Price Badge */}
+                <div className="px-8 pt-8 pb-6">
+                  <div className="flex gap-3 mb-4">
+                    <span className="px-4 py-1.5 bg-white rounded-full text-xs font-semibold text-gray-800">
+                      {item.price}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white leading-tight mb-3">
+                    {item.name}
+                  </h3>
+                  
+                  <p className="text-sm text-white/90 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Image */}
+                <div className="relative bg-white aspect-square overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12 text-gray-500">
+            <p>Menu belum tersedia</p>
+          </div>
+        )}
       </section>
 
       {/* Location & Review Section */}
@@ -334,7 +311,7 @@ const UMKMDetailPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <a
-              href={`https://www.instagram.com/omah_feby`}
+              href={`https://www.instagram.com/${umkm.instagram || ''}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group"
@@ -344,7 +321,7 @@ const UMKMDetailPage = () => {
                   <FaInstagram className="text-4xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Instagram</h3>
-                <p className="text-sm opacity-90">omah_feby</p>
+                <p className="text-sm opacity-90">{umkm.instagram || 'Not available'}</p>
               </div>
             </a>
 
@@ -364,7 +341,7 @@ const UMKMDetailPage = () => {
             </a>
 
             <a
-              href={`mailto:omah_feby@gmail.com`}
+              href={`mailto:${umkm.email || ''}`}
               className="group"
             >
               <div className="bg-gradient-to-br from-[#4A5F7F] to-[#3D4E6B] rounded-3xl p-8 text-center text-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
@@ -372,7 +349,7 @@ const UMKMDetailPage = () => {
                   <FaEnvelope className="text-4xl" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Email</h3>
-                <p className="text-sm opacity-90">omah_feby@gmail.com</p>
+                <p className="text-sm opacity-90">{umkm.email || 'Not available'}</p>
               </div>
             </a>
           </div>
