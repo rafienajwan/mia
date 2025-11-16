@@ -9,9 +9,6 @@ const Header = ({ onSearch }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Hide search on About Us page
-  const hideSearch = location.pathname === '/about';
-
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchQuery(value);
