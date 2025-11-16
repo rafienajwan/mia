@@ -1,10 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHeart, FaStar, FaMapMarkerAlt } from 'react-icons/fa';
 
 const UMKMCard = ({ umkm }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
   const navigate = useNavigate();
+
+  // Check if UMKM is liked on mount
+  useEffect(() => {
+    const likedUMKM = JSON.parse(localStorage.getItem('likedUMKM') || '[]');
+    setIsLiked(likedUMKM.includes(umkm.id));
+  }, [umkm.id]);
+
+  const handleLike = (e) => {
+    e.stopPropagation();
+    const likedUMKM = JSON.parse(localStorage.getItem('likedUMKM') || '[]');
+    
+    if (isLiked) {
+      // Remove from liked
+      const updated = likedUMKM.filter(id => id !== umkm.id);
+      localStorage.setItem('likedUMKM', JSON.stringify(updated));
+      setIsLiked(false);
+    } else {
+      // Add to liked
+      likedUMKM.push(umkm.id);
+      localStorage.setItem('likedUMKM', JSON.stringify(likedUMKM));
+      setIsLiked(true);
+    }
+    
+    // Dispatch custom event for other components (optional)
+    window.dispatchEvent(new Event('likeChanged'));
+  };
 
   const handleClick = () => {
     navigate(`/umkm/${umkm.id}`);
@@ -30,13 +56,10 @@ const UMKMCard = ({ umkm }) => {
         
         {/* Favorite Button - Top Right */}
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsFavorite(!isFavorite);
-          }}
+          onClick={handleLike}
           className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-all"
         >
-          <FaHeart className={`${isFavorite ? 'text-red-500' : 'text-gray-300'} transition-colors`} />
+          <FaHeart className={`${isLiked ? 'text-red-500' : 'text-gray-300'} transition-colors`} />
         </button>
       </div>
 

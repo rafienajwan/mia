@@ -9,16 +9,24 @@ const CategoriesPage = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   // Filter UMKM berdasarkan kategori yang dipilih
-  const filteredUMKM = activeFilter === 'all' 
-    ? umkmData 
-    : umkmData.filter(umkm => {
-        const categoryMap = {
-          'foods': 'Makanan',
-          'drinks': 'Minuman',
-          'fashion': 'Fashion'
-        };
-        return umkm.category === categoryMap[activeFilter];
-      });
+  const filteredUMKM = React.useMemo(() => {
+    if (activeFilter === 'liked') {
+      const likedUMKM = JSON.parse(localStorage.getItem('likedUMKM') || '[]');
+      return umkmData.filter(umkm => likedUMKM.includes(umkm.id));
+    }
+    
+    if (activeFilter === 'all') {
+      return umkmData;
+    }
+    
+    const categoryMap = {
+      'foods': 'Makanan',
+      'drinks': 'Minuman',
+      'fashion': 'Fashion'
+    };
+    
+    return umkmData.filter(umkm => umkm.category === categoryMap[activeFilter]);
+  }, [activeFilter]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -41,8 +49,18 @@ const CategoriesPage = () => {
         {/* Empty State */}
         {filteredUMKM.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">
-              Tidak ada UMKM dalam kategori ini
+            <div className="text-6xl mb-4">
+              {activeFilter === 'liked' ? '💔' : '🔍'}
+            </div>
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">
+              {activeFilter === 'liked' 
+                ? 'Belum ada UMKM yang disukai' 
+                : 'Tidak ada UMKM dalam kategori ini'}
+            </h3>
+            <p className="text-gray-500">
+              {activeFilter === 'liked'
+                ? 'Mulai like UMKM favoritmu!'
+                : 'Coba pilih kategori lain'}
             </p>
           </div>
         )}
